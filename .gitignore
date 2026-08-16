@@ -1,0 +1,50 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+clean_venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Datasets and results
+dataset/
+dataset_finfet/
+test_dram/
+test_finfet/
+clean_dataset_dram/
+regression_dram/
+regression_finfet/
+test_dataset/
+results/
+
+# Temporary and debug files
+scratch/
+debug_*.png
+
+# Presentation outputs
+presentation/Drift-Sense.pdf
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp

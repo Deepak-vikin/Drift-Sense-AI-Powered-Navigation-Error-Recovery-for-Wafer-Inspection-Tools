@@ -1,0 +1,40 @@
+[
+  {
+    "id": "000000",
+    "architecture": "DRAM",
+    "reference": "reference/000000.png",
+    "search": "search/000000.png",
+    "image_width": 1000,
+    "image_height": 1000,
+    "center_x": 162,
+    "center_y": 495,
+    "bbox": {
+      "x": 112,
+      "y": 445,
+      "width": 100,
+      "height": 100
+    },
+    "bbox_x_min": 112,
+    "bbox_y_min": 445,
+    "bbox_x_max": 212,
+    "bbox_y_max": 545,
+    "augmentation_params": {
+      "reference": {
+        "rotation_deg": 0.9279757672456204,
+        "scale_factor": 1.0098658484197036,
+        "blur_sigma": 0.40921304830970556,
+        "edge_strength": 0.3,
+        "noise_sigma": 9.60571445127933,
+        "noise_seed": 893664919
+      },
+      "search": {
+        "rotation_deg": -1.7676655513272022,
+        "scale_factor": 1.0366176145774935,
+        "blur_sigma": 0.7207805082202461,
+        "edge_strength": 0.3,
+        "noise_sigma": 4.871934244034431,
+        "noise_seed": 648061058
+      }
+    }
+  }
+]
