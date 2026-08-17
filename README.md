@@ -98,7 +98,28 @@ We simulate SEM secondary-electron emission characteristics where structural edg
 ## 11. Reproducibility
 The pipeline is strictly reproducible via the `--seed` argument. Providing a global seed guarantees exact generation outputs without sacrificing independent random noise draws for the individual reference and search physical captures.
 
-## 12. Testing & Validation Commands
+## 12. Inference (Evaluation)
+The project includes an inference script that localizes a reference pattern inside a search image, compensating for the physical 10x spatial scale difference. 
+The inference script automatically identifies candidate matching regions and selects the candidate closest to the search-image center.
+
+Usage:
+```bash
+python inference.py <reference_image> <search_image>
+```
+
+- **Input**: The script strictly accepts two arguments: the path to the reference image and the path to the search image. It handles 10x physical sampling variations directly without metadata.
+- **Output**: The standard output (stdout) produces *exactly* the predicted center coordinate of the reference footprint inside the search image in the format: `(x, y)`. All diagnostic and error messages are written safely to stderr.
+
+Example:
+```bash
+$ python inference.py dataset/train/reference/000000.png dataset/train/search/000000.png
+(812, 340)
+```
+
+- `x` is the horizontal pixel coordinate.
+- `y` is the vertical pixel coordinate.
+
+## 13. Testing & Validation Commands
 Run the complete regression and validation suite:
 ```bash
 pytest tests/
@@ -108,13 +129,13 @@ Validate an existing dataset for correctness, bounding boxes, and missing data:
 python validate_dataset.py --dataset dataset/sample
 ```
 
-## 13. Example Generated Sample
+## 14. Example Generated Sample
 To review a visual overlay of the bounding box and exact center coordinates:
 ```bash
 # Generated if --no-visualizations is omitted
 open results/vis_DRAM_000000.png 
 ```
 
-## 14. Known Limitations
+## 15. Known Limitations
 - The generator currently synthesizes purely 2D layouts and ignores z-height perspective variation.
 - Perfect periodic ambiguity cannot be localized successfully without a unique contextual marker, representing a physical limitation of structural scanning.

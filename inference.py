@@ -7,7 +7,7 @@ Localize a reference patch inside a search image.
 Official usage:
     python inference.py path/to/reference.png path/to/search.png
 
-Output (single line, machine-readable):
+Output (single line, machine-readable, center coordinate):
     (634,421)
 
 The output is the predicted CENTER coordinate (x, y) of the reference
@@ -42,8 +42,8 @@ def _parse_args():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__,
     )
-    p.add_argument("reference", help="Path to reference image (~100x100 px, grayscale).")
-    p.add_argument("search", help="Path to search image (1000x1000 px, grayscale).")
+    p.add_argument("reference", help="Path to reference image (1000x1000 px @ 1 nm/px, grayscale). Automatically downsampled 10x internally.")
+    p.add_argument("search", help="Path to search image (1000x1000 px @ 10 nm/px, grayscale).")
     p.add_argument(
         "--verbose", "-v",
         action="store_true",

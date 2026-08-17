@@ -14,44 +14,44 @@
     "reference_physical_height_nm": 1000.0,
     "expected_footprint_width_px": 100.0,
     "expected_footprint_height_px": 100.0,
-    "ground_truth_x": 762,
-    "ground_truth_y": 290,
+    "ground_truth_x": 266,
+    "ground_truth_y": 500,
     "ground_truth_width": 100,
     "ground_truth_height": 100,
-    "ground_truth_center_x": 812.0,
-    "ground_truth_center_y": 340.0,
+    "ground_truth_center_x": 316.0,
+    "ground_truth_center_y": 550.0,
     "image_width": 1000,
     "image_height": 1000,
-    "center_x": 812,
-    "center_y": 340,
+    "center_x": 316,
+    "center_y": 550,
     "bbox": {
-      "x": 762,
-      "y": 290,
+      "x": 266,
+      "y": 500,
       "width": 100,
       "height": 100
     },
-    "bbox_x_min": 762,
-    "bbox_y_min": 290,
-    "bbox_x_max": 862,
-    "bbox_y_max": 390,
+    "bbox_x_min": 266,
+    "bbox_y_min": 500,
+    "bbox_x_max": 366,
+    "bbox_y_max": 600,
     "augmentation_params": {
       "reference": {
-        "rotation_deg": -0.8865224596248154,
-        "scale_factor": 0.9924517590749133,
-        "blur_sigma": 0.8913432926239324,
+        "rotation_deg": -1.916992202562394,
+        "scale_factor": 1.0133648234926276,
+        "blur_sigma": 0.8241627177770283,
         "edge_strength": 0.3,
-        "noise_sigma": 6.3472395343277235,
-        "noise_seed": 273507983
+        "noise_sigma": 8.170565146133967,
+        "noise_seed": 379416616
       },
       "search": {
-        "rotation_deg": -1.5137235168675431,
-        "scale_factor": 1.0170749084726778,
-        "blur_sigma": 0.8780969285735334,
+        "rotation_deg": -1.1008134178766094,
+        "scale_factor": 0.9698062864759625,
+        "blur_sigma": 0.8323714985392712,
         "edge_strength": 0.3,
-        "noise_sigma": 3.0566262742916708,
-        "noise_seed": 1680714980
+        "noise_sigma": 8.982084147631085,
+        "noise_seed": 645868022
       }
     },
-    "seed": 100
+    "seed": 10
   }
 ]

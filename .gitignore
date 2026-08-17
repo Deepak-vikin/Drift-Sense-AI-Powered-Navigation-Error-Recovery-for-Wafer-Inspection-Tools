@@ -1,41 +1,54 @@
-# Byte-compiled / optimized / DLL files
+# Python bytecode and caches
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyo
+*.pyd
+
+# Build and packaging artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
 
 # Virtual environments
+.venv/
 venv/
+clean_env/
 clean_venv/
 env/
 ENV/
 env.bak/
 venv.bak/
 
-# Testing
+# Test and coverage
 .pytest_cache/
 .coverage
+.coverage.*
 htmlcov/
 .tox/
+.nox/
 
-# Datasets and results
-dataset/
-dataset_finfet/
-test_dram/
-test_finfet/
-clean_dataset_dram/
-regression_dram/
-regression_finfet/
-test_dataset/
-results/
-
-# Temporary and debug files
+# Project-generated datasets and outputs
+finfet_dataset/
+outputs/
+outputs2/
 scratch/
+test_dram_*/
+test_finfet_*/
+test_inference_*/
+
+# Reports and debug artifacts
+result.txt
+stdout_result.txt
 debug_*.png
 
-# Presentation outputs
-presentation/Drift-Sense.pdf
+# Local media/output files
+*.mp4
 
-# OS generated files
+# Editor and OS files
+.idea/
 .DS_Store
 .DS_Store?
 ._*
@@ -43,8 +56,4 @@ presentation/Drift-Sense.pdf
 .Trashes
 ehthumbs.db
 Thumbs.db
-
-# IDEs
-.vscode/
-.idea/
 *.swp

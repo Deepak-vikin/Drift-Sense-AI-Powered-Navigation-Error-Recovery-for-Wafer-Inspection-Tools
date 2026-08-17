@@ -1,0 +1,222 @@
+[
+  {
+    "id": "000021",
+    "architecture": "FinFET",
+    "reference": "reference/000021.png",
+    "search": "search/000021.png",
+    "reference_width_px": 1000,
+    "reference_height_px": 1000,
+    "reference_pixel_size_nm": 1.0,
+    "search_width_px": 1000,
+    "search_height_px": 1000,
+    "search_pixel_size_nm": 10.0,
+    "reference_physical_width_nm": 1000.0,
+    "reference_physical_height_nm": 1000.0,
+    "expected_footprint_width_px": 100.0,
+    "expected_footprint_height_px": 100.0,
+    "ground_truth_x": 479,
+    "ground_truth_y": 384,
+    "ground_truth_width": 100,
+    "ground_truth_height": 100,
+    "ground_truth_center_x": 529.0,
+    "ground_truth_center_y": 434.0,
+    "image_width": 1000,
+    "image_height": 1000,
+    "center_x": 529,
+    "center_y": 434,
+    "bbox": {
+      "x": 479,
+      "y": 384,
+      "width": 100,
+      "height": 100
+    },
+    "bbox_x_min": 479,
+    "bbox_y_min": 384,
+    "bbox_x_max": 579,
+    "bbox_y_max": 484,
+    "augmentation_params": {
+      "reference": {
+        "rotation_deg": -0.024425139266261553,
+        "scale_factor": 0.9678822709221329,
+        "blur_sigma": 0.5565281492080019,
+        "edge_strength": 0.3,
+        "noise_sigma": 2.144602908924167,
+        "noise_seed": 1075725333
+      },
+      "search": {
+        "rotation_deg": 0.8837596970085171,
+        "scale_factor": 0.9808060791852389,
+        "blur_sigma": 0.6797781613884295,
+        "edge_strength": 0.3,
+        "noise_sigma": 11.930046276678748,
+        "noise_seed": 1047927533
+      }
+    },
+    "seed": 42
+  },
+  {
+    "id": "000022",
+    "architecture": "FinFET",
+    "reference": "reference/000022.png",
+    "search": "search/000022.png",
+    "reference_width_px": 1000,
+    "reference_height_px": 1000,
+    "reference_pixel_size_nm": 1.0,
+    "search_width_px": 1000,
+    "search_height_px": 1000,
+    "search_pixel_size_nm": 10.0,
+    "reference_physical_width_nm": 1000.0,
+    "reference_physical_height_nm": 1000.0,
+    "expected_footprint_width_px": 100.0,
+    "expected_footprint_height_px": 100.0,
+    "ground_truth_x": 490,
+    "ground_truth_y": 462,
+    "ground_truth_width": 100,
+    "ground_truth_height": 100,
+    "ground_truth_center_x": 540.0,
+    "ground_truth_center_y": 512.0,
+    "image_width": 1000,
+    "image_height": 1000,
+    "center_x": 540,
+    "center_y": 512,
+    "bbox": {
+      "x": 490,
+      "y": 462,
+      "width": 100,
+      "height": 100
+    },
+    "bbox_x_min": 490,
+    "bbox_y_min": 462,
+    "bbox_x_max": 590,
+    "bbox_y_max": 562,
+    "augmentation_params": {
+      "reference": {
+        "rotation_deg": 1.9155714331000362,
+        "scale_factor": 0.9986742152959455,
+        "blur_sigma": 0.9342691514029877,
+        "edge_strength": 0.3,
+        "noise_sigma": 6.718966780484351,
+        "noise_seed": 988638203
+      },
+      "search": {
+        "rotation_deg": -0.5996863692212973,
+        "scale_factor": 1.0145103362030565,
+        "blur_sigma": 0.7682468417641697,
+        "edge_strength": 0.3,
+        "noise_sigma": 8.212732386125143,
+        "noise_seed": 955424572
+      }
+    },
+    "seed": 42
+  },
+  {
+    "id": "000023",
+    "architecture": "FinFET",
+    "reference": "reference/000023.png",
+    "search": "search/000023.png",
+    "reference_width_px": 1000,
+    "reference_height_px": 1000,
+    "reference_pixel_size_nm": 1.0,
+    "search_width_px": 1000,
+    "search_height_px": 1000,
+    "search_pixel_size_nm": 10.0,
+    "reference_physical_width_nm": 1000.0,
+    "reference_physical_height_nm": 1000.0,
+    "expected_footprint_width_px": 100.0,
+    "expected_footprint_height_px": 100.0,
+    "ground_truth_x": 754,
+    "ground_truth_y": 46,
+    "ground_truth_width": 100,
+    "ground_truth_height": 100,
+    "ground_truth_center_x": 804.0,
+    "ground_truth_center_y": 96.0,
+    "image_width": 1000,
+    "image_height": 1000,
+    "center_x": 804,
+    "center_y": 96,
+    "bbox": {
+      "x": 754,
+      "y": 46,
+      "width": 100,
+      "height": 100
+    },
+    "bbox_x_min": 754,
+    "bbox_y_min": 46,
+    "bbox_x_max": 854,
+    "bbox_y_max": 146,
+    "augmentation_params": {
+      "reference": {
+        "rotation_deg": 0.2880167968367324,
+        "scale_factor": 1.0268554014306308,
+        "blur_sigma": 0.3305226402281036,
+        "edge_strength": 0.3,
+        "noise_sigma": 5.993547039078019,
+        "noise_seed": 1839614231
+      },
+      "search": {
+        "rotation_deg": -0.12022194403622821,
+        "scale_factor": 0.9779560341796758,
+        "blur_sigma": 0.9184458155863813,
+        "edge_strength": 0.3,
+        "noise_sigma": 14.934606129568094,
+        "noise_seed": 1420561756
+      }
+    },
+    "seed": 42
+  },
+  {
+    "id": "000024",
+    "architecture": "FinFET",
+    "reference": "reference/000024.png",
+    "search": "search/000024.png",
+    "reference_width_px": 1000,
+    "reference_height_px": 1000,
+    "reference_pixel_size_nm": 1.0,
+    "search_width_px": 1000,
+    "search_height_px": 1000,
+    "search_pixel_size_nm": 10.0,
+    "reference_physical_width_nm": 1000.0,
+    "reference_physical_height_nm": 1000.0,
+    "expected_footprint_width_px": 100.0,
+    "expected_footprint_height_px": 100.0,
+    "ground_truth_x": 137,
+    "ground_truth_y": 27,
+    "ground_truth_width": 100,
+    "ground_truth_height": 100,
+    "ground_truth_center_x": 187.0,
+    "ground_truth_center_y": 77.0,
+    "image_width": 1000,
+    "image_height": 1000,
+    "center_x": 187,
+    "center_y": 77,
+    "bbox": {
+      "x": 137,
+      "y": 27,
+      "width": 100,
+      "height": 100
+    },
+    "bbox_x_min": 137,
+    "bbox_y_min": 27,
+    "bbox_x_max": 237,
+    "bbox_y_max": 127,
+    "augmentation_params": {
+      "reference": {
+        "rotation_deg": 1.8666192761746783,
+        "scale_factor": 1.0463619977089254,
+        "blur_sigma": 0.8971066188271519,
+        "edge_strength": 0.3,
+        "noise_sigma": 5.425473186538515,
+        "noise_seed": 243959576
+      },
+      "search": {
+        "rotation_deg": -0.45960908559229896,
+        "scale_factor": 1.0351136671516856,
+        "blur_sigma": 0.5218454036093944,
+        "edge_strength": 0.3,
+        "noise_sigma": 6.533386704835028,
+        "noise_seed": 1695186921
+      }
+    },
+    "seed": 42
+  }
+]

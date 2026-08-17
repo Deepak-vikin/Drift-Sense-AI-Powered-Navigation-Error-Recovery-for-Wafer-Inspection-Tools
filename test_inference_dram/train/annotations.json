@@ -1,0 +1,57 @@
+[
+  {
+    "id": "000000",
+    "architecture": "DRAM",
+    "reference": "reference/000000.png",
+    "search": "search/000000.png",
+    "reference_width_px": 1000,
+    "reference_height_px": 1000,
+    "reference_pixel_size_nm": 1.0,
+    "search_width_px": 1000,
+    "search_height_px": 1000,
+    "search_pixel_size_nm": 10.0,
+    "reference_physical_width_nm": 1000.0,
+    "reference_physical_height_nm": 1000.0,
+    "expected_footprint_width_px": 100.0,
+    "expected_footprint_height_px": 100.0,
+    "ground_truth_x": 109,
+    "ground_truth_y": 881,
+    "ground_truth_width": 100,
+    "ground_truth_height": 100,
+    "ground_truth_center_x": 159.0,
+    "ground_truth_center_y": 931.0,
+    "image_width": 1000,
+    "image_height": 1000,
+    "center_x": 159,
+    "center_y": 931,
+    "bbox": {
+      "x": 109,
+      "y": 881,
+      "width": 100,
+      "height": 100
+    },
+    "bbox_x_min": 109,
+    "bbox_y_min": 881,
+    "bbox_x_max": 209,
+    "bbox_y_max": 981,
+    "augmentation_params": {
+      "reference": {
+        "rotation_deg": 1.8028572256396647,
+        "scale_factor": 1.0231993941811406,
+        "blur_sigma": 0.7190609389379257,
+        "edge_strength": 0.3,
+        "noise_sigma": 4.9963209507789,
+        "noise_seed": 893664919
+      },
+      "search": {
+        "rotation_deg": -1.3760219186551894,
+        "scale_factor": 0.95580836121682,
+        "blur_sigma": 0.9063233020424546,
+        "edge_strength": 0.3,
+        "noise_sigma": 4.872223685309239,
+        "noise_seed": 648061058
+      }
+    },
+    "seed": 42
+  }
+]
