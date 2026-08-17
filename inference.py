@@ -155,6 +155,21 @@ def main():
         print(f"ERROR: Cannot read search image: {e}", file=sys.stderr)
         sys.exit(1)
 
+    # --- Downsample Reference ---
+    # The reference image is 1 nm/px, search is 10 nm/px.
+    # Therefore, the reference must be downsampled by 10x to match the search scale.
+    try:
+        h, w = reference.shape
+        new_w, new_h = w // 10, h // 10
+        if new_w > 0 and new_h > 0:
+            reference = cv2.resize(reference, (new_w, new_h), interpolation=cv2.INTER_AREA)
+        else:
+            print("ERROR: Reference image too small to downsample 10x.", file=sys.stderr)
+            sys.exit(1)
+    except Exception as e:
+        print(f"ERROR: Could not downsample reference: {e}", file=sys.stderr)
+        sys.exit(1)
+
     if args.verbose:
         print(
             f"[INFO] reference: {args.reference} shape={reference.shape}",

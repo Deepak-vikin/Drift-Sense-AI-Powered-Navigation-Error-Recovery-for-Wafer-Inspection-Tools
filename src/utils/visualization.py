@@ -12,6 +12,10 @@ def visualize_pair_advanced(reference: np.ndarray, search: np.ndarray,
                             search_scale_nm: float = 10.0,
                             seed: int = None) -> plt.Figure:
     """Create advanced presentation-quality visualization showing reference and search."""
+    # Use annotation parameters directly
+    ref_scale_nm = getattr(annotation, 'reference_pixel_size_nm', ref_scale_nm)
+    search_scale_nm = getattr(annotation, 'search_pixel_size_nm', search_scale_nm)
+    
     # Set up the figure with GridSpec for the layout
     fig = plt.figure(figsize=(16, 9), dpi=150, layout='constrained')
     fig.patch.set_facecolor('#ffffff')
@@ -53,15 +57,19 @@ def visualize_pair_advanced(reference: np.ndarray, search: np.ndarray,
     scale_ratio = int(search_scale_nm / ref_scale_nm)
     
     # Add ground truth bounding box
-    bbox = annotation.bbox
+    gt_x = getattr(annotation, 'ground_truth_x', annotation.bbox['x'])
+    gt_y = getattr(annotation, 'ground_truth_y', annotation.bbox['y'])
+    gt_w = getattr(annotation, 'ground_truth_width', annotation.bbox['width'])
+    gt_h = getattr(annotation, 'ground_truth_height', annotation.bbox['height'])
+    
     rect = patches.Rectangle(
-        (bbox['x'], bbox['y']), bbox['width'], bbox['height'],
+        (gt_x, gt_y), gt_w, gt_h,
         linewidth=2.5, edgecolor='#00ff00', facecolor='none'
     )
     ax_search.add_patch(rect)
     
     # Add small label next to bbox
-    ax_search.text(bbox['x'], bbox['y'] - 10, f"Reference footprint\n{bbox['width']} × {bbox['height']} px", 
+    ax_search.text(gt_x, gt_y - 10, f"Reference footprint\n{gt_w} × {gt_h} px", 
                    color='#00ff00', fontsize=10, fontweight='bold',
                    bbox=dict(facecolor='black', alpha=0.6, edgecolor='none', pad=2))
 
@@ -82,7 +90,7 @@ def visualize_pair_advanced(reference: np.ndarray, search: np.ndarray,
     # Calculate scale geometry validation
     expected_ref_physical = ref_w * ref_scale_nm
     expected_search_footprint = expected_ref_physical / search_scale_nm
-    scale_geometry_pass = abs(expected_search_footprint - bbox['width']) < 1.0
+    scale_geometry_pass = abs(expected_search_footprint - gt_w) < 1.0
     
     # Noise validation
     aug_params = annotation.augmentation_params
@@ -94,19 +102,22 @@ def visualize_pair_advanced(reference: np.ndarray, search: np.ndarray,
     edge_str = aug_params.get('reference', {}).get('edge_strength', 0.0)
     edge_pass = edge_str > 0.0
     
+    # Metadata validation
+    has_meta = hasattr(annotation, 'reference_physical_width_nm')
+    
     info_text = (
         f"Generation Parameters\n"
         f"─────────────────────────────────────\n"
         f"Sample ID            : {annotation.id}\n"
         f"Architecture         : {annotation.architecture}\n"
-        f"Seed                 : {seed if seed is not None else 'Random'}\n"
+        f"Seed                 : {getattr(annotation, 'seed', seed) if getattr(annotation, 'seed', seed) is not None else 'Random'}\n"
         f"Scale ratio          : {scale_ratio}×\n\n"
         
         f"Ground Truth\n"
         f"─────────────────────────────────────\n"
-        f"Center               : ({annotation.center_x:.1f}, {annotation.center_y:.1f}) px\n"
-        f"Bounding Box         : x={bbox['x']}, y={bbox['y']}, w={bbox['width']}, h={bbox['height']}\n"
-        f"Footprint            : {bbox['width']} × {bbox['height']} px\n\n"
+        f"Center               : ({getattr(annotation, 'ground_truth_center_x', annotation.center_x):.1f}, {getattr(annotation, 'ground_truth_center_y', annotation.center_y):.1f}) px\n"
+        f"Bounding Box         : x={gt_x}, y={gt_y}, w={gt_w}, h={gt_h}\n"
+        f"Footprint            : {gt_w} × {gt_h} px\n\n"
         
         f"Physical Scale\n"
         f"─────────────────────────────────────\n"
@@ -132,6 +143,7 @@ def visualize_pair_advanced(reference: np.ndarray, search: np.ndarray,
         f"Independent Noise    : {'PASS' if noise_pass else 'FAIL'}\n"
         f"SEM Edge Brightening : {'PASS' if edge_pass else 'FAIL'}\n"
         f"Ground Truth         : PASS\n"
+        f"Metadata             : {'PASS' if has_meta else 'FAIL'}\n"
     )
     
     ax_info.text(0.0, 1.0, info_text, transform=ax_info.transAxes, fontsize=10,

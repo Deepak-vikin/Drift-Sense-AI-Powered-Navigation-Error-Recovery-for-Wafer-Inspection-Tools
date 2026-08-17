@@ -83,20 +83,34 @@ def main():
                 missing_images += 1
                 is_valid = False
             
-            # Check bbox
+            # Check bbox and geometry
             bbox = ann.get('bbox', {})
             x = bbox.get('x', -1)
             y = bbox.get('y', -1)
             w = bbox.get('width', -1)
             h = bbox.get('height', -1)
             
-            img_w = ann.get('image_width', 1000)
-            img_h = ann.get('image_height', 1000)
+            img_w = ann.get('search_width_px', 1000)
+            img_h = ann.get('search_height_px', 1000)
             
             if x < 0 or y < 0 or w <= 0 or h <= 0 or x + w > img_w or y + h > img_h:
                 bbox_errors += 1
                 is_valid = False
                 
+            # Verify Physical Scale Geometry
+            ref_w = ann.get('reference_width_px')
+            ref_px_nm = ann.get('reference_pixel_size_nm')
+            search_px_nm = ann.get('search_pixel_size_nm')
+            
+            if ref_w is not None and ref_px_nm is not None and search_px_nm is not None:
+                expected_footprint_w = (ref_w * ref_px_nm) / search_px_nm
+                actual_footprint_w = ann.get('ground_truth_width', w)
+                
+                if abs(expected_footprint_w - actual_footprint_w) > 1.0:
+                    bbox_errors += 1
+                    is_valid = False
+                    print(f"Scale Geometry ERROR on {ann_id}: expected footprint {expected_footprint_w}, actual {actual_footprint_w}")
+                    
             # Check noise independence
             aug_params = ann.get('augmentation_params', {})
             ref_params = aug_params.get('reference', {})

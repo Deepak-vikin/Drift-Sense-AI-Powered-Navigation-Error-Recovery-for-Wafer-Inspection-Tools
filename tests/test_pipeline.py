@@ -61,14 +61,13 @@ class TestPipeline:
         
         # Verify the crop in search exactly matches the unaugmented ref_base
         # Since augmentation happens later, we just verify the bbox logic
-        bbox = ann.bbox
-        cx, cy = ann.center_x, ann.center_y
+        cx, cy = ann.ground_truth_center_x, ann.ground_truth_center_y
         half = 50
         
-        assert bbox['x'] == cx - half
-        assert bbox['y'] == cy - half
-        assert bbox['width'] == 100
-        assert bbox['height'] == 100
+        assert getattr(ann, 'ground_truth_x', ann.bbox['x']) == cx - half
+        assert getattr(ann, 'ground_truth_y', ann.bbox['y']) == cy - half
+        assert getattr(ann, 'ground_truth_width', ann.bbox['width']) == 100
+        assert getattr(ann, 'ground_truth_height', ann.bbox['height']) == 100
 
     def test_bounding_box_validity(self, tmp_dir):
         """Test 4 — Bounding-box validity: lies within image boundaries."""

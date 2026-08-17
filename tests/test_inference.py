@@ -524,6 +524,7 @@ class TestCLI:
     def test_cli_output_format(self, tmp_path):
         """Test 10: stdout is exactly '(x,y)'."""
         ref, search, _, _ = _make_clean_pair(target_cx=400, target_cy=500)
+        ref = cv2.resize(ref, (1000, 1000), interpolation=cv2.INTER_NEAREST)
         ref_p  = str(tmp_path / "ref.png")
         srch_p = str(tmp_path / "search.png")
         cv2.imwrite(ref_p, ref)
@@ -545,7 +546,7 @@ class TestCLI:
 
     def test_cli_missing_search(self, tmp_path):
         """CLI exits != 0 when search file is missing."""
-        ref_img = np.zeros((100, 100), dtype=np.uint8)
+        ref_img = np.zeros((1000, 1000), dtype=np.uint8)
         ref_p = str(tmp_path / "ref.png")
         cv2.imwrite(ref_p, ref_img)
         result = self._run_cli(ref_p, "/no/such/search.png")
@@ -554,6 +555,7 @@ class TestCLI:
     def test_cli_verbose_flag(self, tmp_path):
         """--verbose: diagnostics go to stderr; stdout stays clean."""
         ref, search, _, _ = _make_clean_pair(target_cx=300, target_cy=300)
+        ref = cv2.resize(ref, (1000, 1000), interpolation=cv2.INTER_NEAREST)
         ref_p  = str(tmp_path / "ref.png")
         srch_p = str(tmp_path / "search.png")
         cv2.imwrite(ref_p, ref)
@@ -571,6 +573,7 @@ class TestCLI:
         ref, search, gt_cx, gt_cy = _make_clean_pair(
             target_cx=450, target_cy=350, seed=99
         )
+        ref = cv2.resize(ref, (1000, 1000), interpolation=cv2.INTER_NEAREST)
         ref_p  = str(tmp_path / "dram_ref.png")
         srch_p = str(tmp_path / "dram_search.png")
         cv2.imwrite(ref_p, ref)
@@ -613,6 +616,8 @@ class TestCLI:
         half = 50
         ref = search[gt_cy-half:gt_cy+half,
                      gt_cx-half:gt_cx+half].copy()
+                     
+        ref = cv2.resize(ref, (1000, 1000), interpolation=cv2.INTER_NEAREST)
 
         ref_p  = str(tmp_path / "finfet_ref.png")
         srch_p = str(tmp_path / "finfet_search.png")
@@ -633,6 +638,7 @@ class TestCLI:
     def test_cli_save_debug(self, tmp_path):
         """--save-debug: debug image saved, stdout still clean."""
         ref, search, _, _ = _make_clean_pair(target_cx=400, target_cy=400)
+        ref = cv2.resize(ref, (1000, 1000), interpolation=cv2.INTER_NEAREST)
         ref_p   = str(tmp_path / "ref.png")
         srch_p  = str(tmp_path / "search.png")
         debug_d = str(tmp_path / "dbg")

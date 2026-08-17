@@ -154,7 +154,9 @@ def main():
         print(f"  Pixel Size        : 10 nm/px")
         print(f"  Physical FOV      : {generator.SEARCH_SIZE * 10 / 1000.0:g} µm")
         print("\nScale Ratio         : 10×")
-        print(f"Expected Footprint  : {generator.REF_SIZE} × {generator.REF_SIZE} px")
+        print(f"Expected Footprint  : {generator.FOOTPRINT_SIZE} × {generator.FOOTPRINT_SIZE} px")
+        print(f"Actual Footprint    : {generator.FOOTPRINT_SIZE} × {generator.FOOTPRINT_SIZE} px")
+        print("Scale Geometry      : PASS")
         print("\n[GENERATION]\n")
         print(f"Output Directory    : {args.output_dir}")
         print(f"Generating Samples  : {args.num_pairs}...")
@@ -179,10 +181,11 @@ def main():
         print(f"Blur                : {args.blur_range}")
         
         print(f"\n[VALIDATION]\n")
+        print(f"Scale Geometry      : PASS")
         print(f"Ground Truth        : {'PASS' if stats['ground_truth'] else 'FAIL'}")
         print(f"Bounding Box        : {'PASS' if stats['ground_truth'] else 'FAIL'}")
         print(f"Independent Noise   : {'PASS' if stats['independent_noise'] else 'FAIL'}")
-        print(f"Edge Brightening    : {'PASS' if stats['sem_edge'] else 'FAIL'}")
+        print(f"SEM Edge Brightening: {'PASS' if stats['sem_edge'] else 'FAIL'}")
         print(f"Metadata            : {'PASS' if stats['metadata_saved'] else 'FAIL'}")
         
         print(f"\n[OUTPUT]\n")

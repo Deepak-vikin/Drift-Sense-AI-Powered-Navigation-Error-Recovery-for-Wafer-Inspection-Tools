@@ -111,9 +111,7 @@ class TestDatasetGenerator:
             if refs:
                 img = cv2.imread(str(refs[0]), cv2.IMREAD_GRAYSCALE)
                 assert img is not None
-                h, w = img.shape
-                assert 80 <= h <= 120  # approximately 100
-                assert 80 <= w <= 120
+                assert img.shape == (1000, 1000)
     
     def test_search_dimensions(self, tmp_dir):
         gen = DatasetGenerator('DRAM', str(tmp_dir / 'out'), seed=42)
